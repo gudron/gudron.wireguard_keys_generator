@@ -1,0 +1,27 @@
+---
+- stat:
+    path: "{{ peer_params.private_key }}"
+  register: private_key_stat
+
+- stat:
+    path: "{{ peer_params.preshared_key }}"
+  register: preshared_key_stat
+
+- stat:
+    path: "{{ peer_params.public_key }}"
+  register: public_key_stat
+
+- name: Inlcude tasks
+  include_tasks: private_key.yml
+  when: 
+    - private_key_stat.stat.isreg is defined and private_key_stat.stat.isreg == False
+
+- name: Inlcude tasks
+  include_tasks: private_key.yml
+  when: 
+    - preshared_key_stat.stat.isreg is defined and preshared_key_stat.stat.isreg == False
+
+- name: Inlcude tasks
+  include_tasks: pubclic_key.yml
+  when: 
+    - public_key_stat.stat.isreg is defined and public_key_stat.stat.isreg == False

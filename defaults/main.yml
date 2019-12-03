@@ -1,0 +1,8 @@
+---
+peers:
+  - private_key: /path/to/private/key
+    public_key: /path/to/public/key
+    preshared_key: /path/to/preshared/key
+  - private_key: /anotherPeer/path/to/private/key
+    public_key: /anotherPeer/path/to/public/key
+    preshared_key: /anotherPeer/path/to/preshared/key

@@ -1,0 +1,8 @@
+---
+- name: Inlcude tasks
+  include_tasks: generate_key/generate_key.yml
+  vars:
+    peer_params: "{{ peer }}"
+  loop: "{{ peers }}"
+  loop_control:
+    loop_var: peer

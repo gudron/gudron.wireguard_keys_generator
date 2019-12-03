@@ -1,0 +1,12 @@
+---
+- name: Add repository
+  action:
+    module: "{{ add_repository_module }}"
+    state: present
+    repo: "{{ repository_name }}"
+
+- name: Install wireguard
+  package:
+    name: "{{ package_name }}"
+    state: present
+  become: yes

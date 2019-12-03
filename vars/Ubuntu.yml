@@ -1,0 +1,5 @@
+---
+add_repository_module: apt_repository
+
+package_name: wireguard
+repository_name: ppa:wireguard/wireguard
